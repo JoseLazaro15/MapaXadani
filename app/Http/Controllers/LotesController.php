@@ -28,5 +28,6 @@ class LotesController extends Controller
 
         return view('index', ['informacion' => $informacion]);
     }
+    
 
 }

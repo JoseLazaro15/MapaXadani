@@ -20,4 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Route::match(['get', 'post'],'/obtenerInformacion', [LotesController::class, 'obtenerInformacion'])->name('obtenerInformacion');

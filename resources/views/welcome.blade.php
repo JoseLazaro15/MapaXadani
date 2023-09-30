@@ -30,6 +30,7 @@
 
     <a href="{{ route('obtenerInformacion') }}" class="btn btn-primary">Ir a la página de Usuarios</a>
 
+    
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 2118.36 1734.77" style="enable-background:new 0 0 2118.36 1734.77;" xml:space="preserve">
         <g id="Layer_7">
             <g>
