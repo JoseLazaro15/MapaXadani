@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Styles -->
 
@@ -36422,14 +36423,43 @@
         <div class="modal-content">
             <div class="modal-header">
                 <!-- ... encabezado del modal ... -->
-                <h5 class="modal-title">Datos del lote</h5>
+                <h1 class="modal-title">Datos del lote seleccionado</h1>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <div id="modalContent"> <!-- Asegúrate de que este elemento esté presente -->
+                <div id="modalContent">
                     <!-- Aquí se llenará la información dinámicamente -->
+        
+                </div>
+                <div class="form-group">
+                    <label for="interesDropdown">Estoy Interesado:</label>
+                    <select class="form-control" id="interesDropdown">
+                        <option value="Blank">------------------</option>
+                        <option value="Si">Sí</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div id="formularioContacto" style="display: none;">
+                <h1>Ingresa tus datos</h1>
+                <form id="contactForm" method="POST">
+                <p></p>
+                @csrf
+                     <div class="form-group">
+                        <label for="nombre">Nombre Completo:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono de Contacto:</label>
+                        <input type="text" class="form-control" id="telefono" name="telefono" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo Electrónico:</label>
+                        <input type="email" class="form-control" id="correo" name="correo" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
                 </div>
             </div>
             <div class="modal-footer">
@@ -36442,9 +36472,11 @@
 
 
 
-    <script>
+<script>
     document.addEventListener('DOMContentLoaded', function () {
         const categoryButtons = document.querySelectorAll('.categoryButton');
+        const formularioContacto = document.getElementById('formularioContacto');
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
         categoryButtons.forEach(function (button) {
             button.addEventListener('click', function () {
@@ -36453,7 +36485,7 @@
                 fetch('/obtenerValoresPorID', {
                     method: 'POST',
                     headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'X-CSRF-TOKEN': csrfToken,
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({ id: id })
@@ -36468,12 +36500,55 @@
                         <p>Numero de lote: ${data.num_lote}</p>
                         <p>Zona: ${data.zona}</p>
                         <p>Area del lote: ${data.area_lote}</p>
-                        <p>Precio de contado: ${data.precio_con}</p>
-                        <!-- Muestra otros campos según tu modelo aquí -->
+                        <p>Precio de contado: ${data.precio_con}</p>    
                     `;
 
                     // Abre el modal
                     $('#myModal').modal('show');
+
+                    const interesDropdown = document.getElementById('interesDropdown');
+                    const statusLote = data.status_lote;
+                    if (statusLote === 'Disponible') {
+                    interesDropdown.addEventListener('change', function () {
+                        if (interesDropdown.value === 'Si') {
+                            formularioContacto.style.display = 'block';
+                        } else {
+                            formularioContacto.style.display = 'none';
+                        }
+                    });
+                    } else {formularioContacto.style.display = 'none';
+                    }
+
+                    const contactForm = document.getElementById('contactForm');
+                    contactForm.addEventListener('submit', function (e) {
+                        e.preventDefault();
+                        const formData = new FormData(contactForm);
+                    // Crear un objeto para contener los datos del formulario y la información obtenida
+                    formData.append('id', id);
+
+                    fetch('/enviarFormularioContacto', {
+                            method: 'POST',
+                            headers: {
+                            'X-CSRF-TOKEN': csrfToken, // Agrega el token CSRF al encabezado
+                            //'Content-Type': 'application/json',
+                        },
+                          body: formData,
+
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                alert('Sus datosfueron enviados con exito, Enseguida uno de nuestros asesores lo contactara para brindarle mas informacion');
+                             // Cierra el modal después de enviar el formulario
+                             $('#myModal').modal('hide');
+                             } else {
+                                alert('Error al enviar el formulario');
+                            }
+                        })
+                        .catch(error => {
+                            alert('Error 404 al enviar el formulario');
+                        });
+                    });
+                    
                 });
             });
         });
