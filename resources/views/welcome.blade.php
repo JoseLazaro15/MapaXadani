@@ -8,6 +8,7 @@
     <title>Mapa Xadani</title>
 
     <!-- Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
@@ -17,6 +18,9 @@
 </head>
 
 <body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
      <!--
     <div class="jm-loadingpage">
         <div class="centrado">
@@ -800,8 +804,8 @@
             </g>
         </g>
 
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
-        <g id="Manzana_3_Lote_1">
+        <a type="button" class="categoryButton" data-id="24">
+        <g id="Manzana_3_Lote_1" >
             <g>
                 <g class="st0">
                     <g class="st0">
@@ -1083,7 +1087,7 @@
 
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="25">
         <g id="Manzana_3_Lote_2">
             <g>
                 <g class="st0">
@@ -1290,7 +1294,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="26">
         <g id="Manzana_3_Lote_3">
             <g>
                 <g class="st0">
@@ -1470,7 +1474,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="27">
         <g id="Manzana_3_Lote_4">
             <g>
                 <g class="st0">
@@ -1650,7 +1654,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="28">
         <g id="Manzana_3_Lote_5">
             <g>
                 <g class="st0">
@@ -1826,7 +1830,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="29">
         <g id="Manzana_3_Lote_6">
             <g>
                 <g class="st0">
@@ -2021,7 +2025,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="30">
         <g id="Manzana_3_Lote_7">
             <g>
                 <g class="st0">
@@ -2201,7 +2205,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="31">
         <g id="Manzana_3_Lote_8">
             <g>
                 <g class="st0">
@@ -2381,7 +2385,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="32">
         <g id="Manzana_3_Lote_9">
             <g>
                 <g class="st0">
@@ -2561,7 +2565,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="33">
         <g id="Manzana_3_Lote_10">
             <g>
                 <g class="st0">
@@ -2769,7 +2773,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="34">
         <g id="Manzana_3_Lote_11">
             <g>
                 <g class="st0">
@@ -2957,7 +2961,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="23">
         <g id="Manzana_2_Lote_16">
             <g>
                 <g class="st0">
@@ -3180,7 +3184,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="22">
         <g id="Manzana_2_Lote_15">
             <g>
                 <g class="st0">
@@ -3374,7 +3378,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="21">
         <g id="Manzana_2_Lote_14">
             <g>
                 <g class="st0">
@@ -3554,7 +3558,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="20">
         <g id="Manzana_2_Lote_13">
             <g>
                 <g class="st0">
@@ -3749,7 +3753,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="bseleccionable" path id="19">
         <g id="Manzana_2_Lote_12">
             <g>
                 <g class="st0">
@@ -3943,7 +3947,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="18">
         <g id="Manzana_2_Lote_11">
             <g>
                 <g class="st0">
@@ -4138,7 +4142,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="17">
         <g id="Manzana_2_Lote_10">
             <g>
                 <g class="st0">
@@ -4330,7 +4334,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="16">
         <g id="Manzana_2_Lote_9">
             <g>
                 <g class="st0">
@@ -4524,7 +4528,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="15">
         <g id="Manzana_2_Lote_8">
             <g>
                 <g class="st0">
@@ -4752,7 +4756,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="14">
         <g id="Manzana_2_Lote_7">
             <g>
                 <g class="st0">
@@ -4946,7 +4950,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="13">
         <g id="Manzana_2_Lote_6">
             <g>
                 <g class="st0">
@@ -5125,7 +5129,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="12">
         <g id="Manzana_2_Lote_5">
             <g>
                 <g class="st0">
@@ -5316,7 +5320,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="11">
         <g id="Manzana_2_Lote_4">
             <g>
                 <g class="st0">
@@ -5509,7 +5513,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="10">
         <g id="Manzana_2_Lote_3">
             <g>
                 <g class="st0">
@@ -5728,7 +5732,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="9">
         <g id="Manzana_2_Lote_2">
             <g>
                 <g class="st0">
@@ -5919,8 +5923,8 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
-        <g id="Manzana_2_Lote_1_7_">
+        <a type="button" class="categoryButton"  data-id="8">
+        <g id="Manzana_2_Lote_1_">
             <g>
                 <g class="st0">
                     <g class="st0">
@@ -6113,7 +6117,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="7">
         <g id="Manzana_1_Lote_7">
             <g>
                 <g class="st0">
@@ -6427,7 +6431,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="6">
         <g id="Manzana_1_Lote_6">
             <g>
                 <g class="st0">
@@ -6667,7 +6671,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="5">
         <g id="Manzana_1_Lote_5">
             <g>
                 <g class="st0">
@@ -6844,7 +6848,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="4">
         <g id="Manzana_1_Lote_4">
             <g>
                 <g class="st0">
@@ -7023,7 +7027,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="3">
         <g id="Manzana_1_Lote_3">
             <g>
                 <g class="st0">
@@ -7201,7 +7205,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="2">
         <g id="Manzana_1_Lote_2">
             <g>
                 <g class="st0">
@@ -7379,7 +7383,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="1">
         <g id="Manzana_1_Lote_1">
             <g>
                 <g class="st0">
@@ -7569,7 +7573,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="42">
         <g id="Manzana_4_Lote_8">
             <g>
                 <g class="st0">
@@ -7752,7 +7756,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="41">
         <g id="Manzana_4_Lote_7">
             <g>
                 <g class="st0">
@@ -7931,7 +7935,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="40">
         <g id="Manzana_4_Lote_6">
             <g>
                 <g class="st0">
@@ -8124,7 +8128,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="39">
         <g id="Manzana_4_Lote_5">
             <g>
                 <g class="st0">
@@ -8331,7 +8335,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="38">
         <g id="Manzana_4_Lote_4">
             <g>
                 <g class="st0">
@@ -8523,7 +8527,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="37">
         <g id="Manzana_4_Lote_3">
             <g>
                 <g class="st0">
@@ -8730,7 +8734,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="36">
         <g id="Manzana_4_Lote_2">
             <g>
                 <g class="st0">
@@ -8922,7 +8926,7 @@
             </g>
         </g>
         </a>
-        <a type="button" class="btn btn-primary openBtnM3L16" path id="">
+        <a type="button" class="categoryButton"  data-id="35">
         <g id="Manzana_4_Lote_1">
             <g>
                 <g class="st0">
@@ -36411,6 +36415,67 @@
             </g>
         </g>
     </svg>
+    
+    <!-- Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- ... encabezado del modal ... -->
+            </div>
+            <div class="modal-body">
+                <div id="modalContent"> <!-- Asegúrate de que este elemento esté presente -->
+                    <!-- Aquí se llenará la información dinámicamente -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <!-- ... pie de página del modal ... -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const categoryButtons = document.querySelectorAll('.categoryButton');
+
+        categoryButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                const id = button.getAttribute('data-id');
+                // Realiza una solicitud AJAX para obtener la información por ID
+                fetch('/obtenerValoresPorID', {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ id: id })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Rellena el modal con la información recibida
+                    document.getElementById('modalContent').innerHTML = `
+                        <p>ID: ${data.id}</p>
+                        <p>Status del Lote: ${data.status_lote}</p>
+                        <p>Numero de Manzana: ${data.num_manzana}</p>
+                        <p>Numero de lote: ${data.num_lote}</p>
+                        <p>Zona: ${data.zona}</p>
+                        <p>Area del lote: ${data.area_lote}</p>
+                        <p>Precio de contado: ${data.precio_con}</p>
+                        <!-- Muestra otros campos según tu modelo aquí -->
+                    `;
+
+                    // Abre el modal
+                    $('#myModal').modal('show');
+                });
+            });
+        });
+    });
+</script>
+
+
 
 </body>
 

@@ -23,3 +23,5 @@ Route::get('/', function () {
 
 
 Route::match(['get', 'post'],'/obtenerInformacion', [LotesController::class, 'obtenerInformacion'])->name('obtenerInformacion');
+
+Route::post('/obtenerValoresPorID', [LotesController::class, 'obtenerValoresPorID'])->name('obtenerValoresPorID');

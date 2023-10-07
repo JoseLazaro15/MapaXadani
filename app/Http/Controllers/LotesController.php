@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Lotes;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+
 //use Illuminate\Support\Facades\DB;
 use App\Models\Usuario;
 
@@ -29,5 +31,12 @@ class LotesController extends Controller
         return view('index', ['informacion' => $informacion]);
     }
     
+    public function obtenerValoresPorID(Request $request)
+    {
+        $id = $request->input('id');
+        $informacion = Lotes::find($id);
+
+        return response()->json($informacion);
+    }
 
 }
