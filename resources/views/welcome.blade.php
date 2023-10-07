@@ -36434,15 +36434,18 @@
         
                 </div>
                 <div class="form-group">
-                    <label for="interesDropdown">Estoy Interesado:</label>
+
                     <select class="form-control" id="interesDropdown">
+
+                    <label for="interesDropdown">Estoy Interesado:</label>
+                    <label>Estoy Interesado:</label>
                         <option value="Blank">------------------</option>
                         <option value="Si">Sí</option>
                         <option value="No">No</option>
                     </select>
                 </div>
                 <div id="formularioContacto" style="display: none;">
-                <h1>Ingresa tus datos</h1>
+                <h5>Ingresa tus datos</h5>
                 <form id="contactForm" method="POST">
                 <p></p>
                 @csrf
@@ -36476,6 +36479,7 @@
     document.addEventListener('DOMContentLoaded', function () {
         const categoryButtons = document.querySelectorAll('.categoryButton');
         const formularioContacto = document.getElementById('formularioContacto');
+        const interesDropdown = document.getElementById('interesDropdown');
         const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
         categoryButtons.forEach(function (button) {
@@ -36506,17 +36510,18 @@
                     // Abre el modal
                     $('#myModal').modal('show');
 
-                    const interesDropdown = document.getElementById('interesDropdown');
+
                     const statusLote = data.status_lote;
                     if (statusLote === 'Disponible') {
-                    interesDropdown.addEventListener('change', function () {
+                        interesDropdown.style.display ='block';
+                        interesDropdown.addEventListener('change', function () {
                         if (interesDropdown.value === 'Si') {
                             formularioContacto.style.display = 'block';
                         } else {
                             formularioContacto.style.display = 'none';
                         }
                     });
-                    } else {formularioContacto.style.display = 'none';
+                    } else {interesDropdown.style.display = 'none';
                     }
 
                     const contactForm = document.getElementById('contactForm');
