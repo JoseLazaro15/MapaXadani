@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\DB;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-/*Route::get('/ShowRegisters', [LotesController::class, 'ShowRegisters'])->name('index');*/
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,6 +24,8 @@ Route::get('/', function () {
 Route::match(['get', 'post'],'/obtenerInformacion', [LotesController::class, 'obtenerInformacion'])->name('obtenerInformacion');
 
 Route::post('/obtenerValoresPorID', [LotesController::class, 'obtenerValoresPorID'])->name('obtenerValoresPorID');
+
+/* Route::post('/enviarFormularioContacto', [LotesController::class, 'enviarFormularioContacto']); */
 
 Route::post('/enviarFormularioContacto', [LotesController::class, 'enviarFormularioContacto']);
 

@@ -1,3 +1,15 @@
+.svg-container {
+    display: inline-block;
+    width: 150%;
+    padding-bottom: 150%;
+    vertical-align: middle;
+    position: absolute;
+    overflow: hidden;
+    width: 100%; /* Opcional: ajusta el ancho según tus necesidades */
+    height: 100%; /* Opcional: ajusta la altura según tus necesidades */
+}
+
+
 .centrado {
     height: 100vh;
     background-color: #212121;
@@ -445,14 +457,7 @@
     }
 }
 
-.svg-container {
-    display: inline-block;
-    position: relative;
-    width: 150%;
-    padding-bottom: 150%;
-    vertical-align: middle;
-    overflow: hidden;
-}
+
 
 .st0 {
     enable-background: new;

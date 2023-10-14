@@ -31,12 +31,12 @@
                 <div class="box3"></div>
             </div>
         </div>
-    </div> -->
+    </div> 
 
-    <a href="{{ route('obtenerInformacion') }}" class="btn btn-primary">Ir a la página de Usuarios</a>
+   <a href="{{ route('obtenerInformacion') }}" class="btn btn-primary">Ir a la página de Usuarios</a> -->
 
-    
-    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 2118.36 1734.77" style="enable-background:new 0 0 2118.36 1734.77;" xml:space="preserve">
+<div id="mobile-div" style="position: absolute; width: 100%; height: 100%;">
+    <svg id="svg-container" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 2118.36 1734.77" style="display: inline; width: inherit; min-width: inherit; max-width: inherit; height: inherit; min-height: inherit; max-height: inherit;" xml:space="preserve">
         <g id="Layer_7">
             <g>
                 <g class="st0">
@@ -36416,6 +36416,7 @@
             </g>
         </g>
     </svg>
+</div>
     
     <!-- Modal -->
 <div class="modal" id="myModal">
@@ -36423,7 +36424,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <!-- ... encabezado del modal ... -->
-                <h1 class="modal-title">Datos del lote seleccionado</h1>
+                <h5 class="modal-title">Datos del lote seleccionado</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -36431,22 +36432,20 @@
             <div class="modal-body">
                 <div id="modalContent">
                     <!-- Aquí se llenará la información dinámicamente -->
-        
+                    
                 </div>
                 <div class="form-group">
-
+                <label>Estoy Interesado:</label>
                     <select class="form-control" id="interesDropdown">
-
                     <label for="interesDropdown">Estoy Interesado:</label>
                     <label>Estoy Interesado:</label>
-                        <option value="Blank">------------------</option>
-                        <option value="Si">Sí</option>
                         <option value="No">No</option>
+                        <option value="Si">Sí</option>
                     </select>
                 </div>
                 <div id="formularioContacto" style="display: none;">
                 <h5>Ingresa tus datos</h5>
-                <form id="contactForm" method="POST">
+                <form id="contactForm" method="POST" action="/enviarFormulario">
                 <p></p>
                 @csrf
                      <div class="form-group">
@@ -36512,6 +36511,9 @@
 
 
                     const statusLote = data.status_lote;
+                                // Ocultar el formulario por defecto
+                                formularioContacto.style.display = 'none';
+                                interesDropdown.value = 'No';
                     if (statusLote === 'Disponible') {
                         interesDropdown.style.display ='block';
                         interesDropdown.addEventListener('change', function () {
@@ -36522,6 +36524,14 @@
                         }
                     });
                     } else {interesDropdown.style.display = 'none';
+                        // Eliminar el evento 'change' del Dropdown si el Status es "No disponible"
+                        interesDropdown.removeEventListener('change', function () {
+                    if (interesDropdown.value === 'Si') {
+                        formularioContacto.style.display = 'block';
+                    } else {
+                        formularioContacto.style.display = 'none';
+                    }
+                });
                     }
 
                     const contactForm = document.getElementById('contactForm');
@@ -36542,7 +36552,7 @@
                         })
                         .then(response => {
                             if (response.ok) {
-                                alert('Sus datosfueron enviados con exito, Enseguida uno de nuestros asesores lo contactara para brindarle mas informacion');
+                                alert('Sus datos fueron enviados con exito. Enseguida uno de nuestros asesores lo contactara para brindarle mas informacion');
                              // Cierra el modal después de enviar el formulario
                              $('#myModal').modal('hide');
                              } else {
@@ -36553,14 +36563,86 @@
                             alert('Error 404 al enviar el formulario');
                         });
                     });
-                    
+                });
                 });
             });
         });
-    });
 </script>
 
 
+<script src="{{ asset('assets/js/svg-pan-zoom.js')}}"></script>
+<script src="{{ asset('assets/js/hammer.js')}}"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', function () {
+        var eventsHandler;
+
+        eventsHandler = {
+            haltEventListeners: ['touchstart', 'touchend', 'touchmove', 'touchleave', 'touchcancel'],
+            init: function (options) {
+                var instance = options.instance,
+                    initialScale = 1,
+                    pannedX = 0,
+                    pannedY = 0;
+
+                // Init Hammer
+                // Listen only for pointer and touch events
+                this.hammer = new Hammer(options.svgElement, {
+                    inputClass: Hammer.SUPPORT_POINTER_EVENTS ? Hammer.PointerEventInput : Hammer.TouchInput
+                });
+
+                // Enable pinch
+                this.hammer.get('pinch').set({ enable: true });
+
+                // Handle double tap
+                this.hammer.on('doubletap', function (ev) {
+                    instance.zoomIn();
+                });
+
+                // Handle pan
+                this.hammer.on('panstart panmove', function (ev) {
+                    // On pan start reset panned variables
+                    if (ev.type === 'panstart') {
+                        pannedX = 0;
+                        pannedY = 0;
+                    }
+
+                    // Pan only the difference
+                    instance.panBy({ x: ev.deltaX - pannedX, y: ev.deltaY - pannedY });
+                    pannedX = ev.deltaX;
+                    pannedY = ev.deltaY;
+                });
+
+                // Handle pinch
+                this.hammer.on('pinchstart pinchmove', function (ev) {
+                    // On pinch start remember initial zoom
+                    if (ev.type === 'pinchstart') {
+                        initialScale = instance.getZoom();
+                        instance.zoomAtPoint(initialScale * ev.scale, { x: ev.center.x, y: ev.center.y });
+                    }
+
+                    instance.zoomAtPoint(initialScale * ev.scale, { x: ev.center.x, y: ev.center.y });
+                });
+
+                // Prevent moving the page on some devices when panning over SVG
+                options.svgElement.addEventListener('touchmove', function (e) { e.preventDefault(); });
+            },
+
+            destroy: function () {
+                this.hammer.destroy();
+            }
+        };
+
+        // Expose to window namespace for testing purposes
+        window.panZoom = svgPanZoom('#svg-container', {
+            zoomEnabled: true,
+            controlIconsEnabled: true,
+            fit: 1,
+            center: 1,
+            customEventsHandler: eventsHandler
+        });
+    });
+</script>
 
 </body>
 

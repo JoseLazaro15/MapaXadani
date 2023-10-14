@@ -45,6 +45,7 @@ class LotesController extends Controller
     {
         // Obtén el ID del lote desde el formulario
         $id = $request->input('id'); // Asegúrate de que esto sea el nombre correcto del campo
+
     
         // Busca el lote por su ID
         $informacionLote = Lotes::find($id);
